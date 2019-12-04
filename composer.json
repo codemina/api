@@ -1,0 +1,14 @@
+{
+    "name": "codemina/api",
+    "description": "CodeMina API",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Ibrahim Haj",
+            "email": "e.ibh2011@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
