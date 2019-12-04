@@ -1,5 +1,8 @@
 <?php
 
+
+namespace CodeMina\Api;
+
 /**
  * Class CmSms
  *
@@ -17,7 +20,7 @@ class CmSms
     /** @var CmMessage */
     private $_message;
 
-    public function __construct(string $token, CmMessage $message)
+    public function __construct($token, CmMessage $message)
     {
         $this->_token = $token;
         $this->_message = $message;
@@ -40,18 +43,4 @@ class CmSms
         $content = curl_exec($ch);
         return json_decode($content);
     }
-}
-
-/**
- * Class CmMessage
- * @property string $_to
- * @property string $_body
- */
-class CmMessage extends stdClass
-{
-    /** @var string  */
-    public $_to = '';
-
-    /** @var string  */
-    public $_body = '';
 }
