@@ -9,7 +9,7 @@ namespace CodeMina\Api;
  * @property string $_to
  * @property string $_body
  */
-class CmMessage extends stdClass
+class CmMessage extends \stdClass
 {
     /** @var string  */
     public $_to = '';
