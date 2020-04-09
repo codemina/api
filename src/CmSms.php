@@ -12,17 +12,40 @@ namespace CodeMina\Api;
 class CmSms
 {
     /** @var string  */
-    private $_token = '';
+    private $_token = null;
 
     /** @var string  */
     private $_api = 'https://www.codemina.com/api/smsapi';
 
     /** @var CmMessage */
-    private $_message;
+    private $_message = null;
 
-    public function __construct($token, CmMessage $message)
+    /**
+     * CmSms constructor.
+     * @param string|null $token
+     * @param CmMessage|null $message
+     */
+    public function __construct($token = null, CmMessage $message = null)
     {
         $this->_token = $token;
+        $this->_message = $message;
+    }
+
+    /**
+     * @return CmSms
+     */
+    public static function getInstance()
+    {
+        return new CmSms();
+    }
+
+    public function setToken($token)
+    {
+        $this->_token = $token;
+    }
+
+    public function setMessage(CmMessage $message)
+    {
         $this->_message = $message;
     }
 
@@ -31,6 +54,10 @@ class CmSms
      */
     public function send()
     {
+        if ($this->_token == null || $this->_message == null) {
+            return false;
+        }
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->_api);
         curl_setopt($ch, CURLOPT_POST, true);
