@@ -42,11 +42,13 @@ class CmSms
     public function setToken($token)
     {
         $this->_token = $token;
+        return $this;
     }
 
     public function setMessage(CmMessage $message)
     {
         $this->_message = $message;
+        return $this;
     }
 
     /**
